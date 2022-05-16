@@ -1,0 +1,40 @@
+table,
+td,
+th {
+  text-align: center;
+  background-color: chocolate;
+  table-layout: fixed;
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+td:nth-child(1) {
+  width: 10%;
+}
+
+td:nth-child(2) {
+  width: 20%;
+}
+
+td:nth-child(3) {
+  width: 20%;
+}
+
+td:nth-child(4) {
+  width: 20%;
+}
+
+td:nth-child(5) {
+  width: 50%;
+}
+
+td:nth-child(6) {
+  width: 10%;
+}
+td:nth-child(7) {
+  width: 10%;
+}

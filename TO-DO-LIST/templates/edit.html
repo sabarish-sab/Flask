@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>My TO-DO-LIST-APP</title>
+    </head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col" style="padding: 20px; ">
+        <br>
+        
+        <form class="form-floating" method="post" action="/edit/{{list.id}}">
+            <br>
+            <div class="form-floating">
+                <label for="floatingInputValue1">Date</label>
+                <input type="date" name="t_date" class="form-control" id="floatingInputValue1" value="{{ list.Date }}" required>
+                
+            </div>
+            <br>
+            <div class="form-floating">
+                <label for="floatingInputValue2">Name of the task</label>
+                <input type="text" name="t_name" class="form-control" id="floatingInputValue2" value="{{ list.Name }}" required>
+                
+            </div>
+            <br>
+            <div class="form-floating">
+                <label for="floatingInputValue3">Email </label>
+                <input type="email" name="t_email" class="form-control" id="floatingInputValue3" value="{{ list.Email }}" required>
+            
+            </div>
+            <br>
+            <div class="form-floating">
+                <label for="floatingInputValue4">Phone Number</label>
+                <input type="number" name="t_phone" class="form-control" id="floatingInputValue4" value="{{ list.Phone }}" required>
+                
+            </div>
+            <br>
+            <div class="form-floating">
+                <label for="floatingSelect">Select Priority Level</label>
+                    {% if list.Priority == 'High' %}
+                    <input type="radio" class="form-select" name="t_pri" id="floatingSelect" checked> High
+                    {% endif %}
+                    {% if list.Priority == 'Normal' %}
+                    <input type="radio" class="form-select" name="t_pri" id="floatingSelect"  checked> low
+                    {% endif %}
+                    {% if list.Priority == 'Low' %}
+                    <input type="radio" class="form-select" name="t_pri" id="floatingSelect"  checked> normal
+                    {% endif %}
+               
+            </div>
+            <br>
+            <div class="form-floating">
+                <center><button type="submit" class="btn btn-primary">Update Task</button></center>
+            </div>
+        </form>
+        <br>
+        {% if msg %}
+        <div class="alert alert-success" role="alert">
+            {{ msg }}
+        </div>
+        {% endif %}
+        <br>
+        <div class="form-floating">
+            <center><a href="/list"><button type="submit" class="btn btn-secondary">Show To-Do List</button></a>&nbsp;&nbsp;<a href="/"><button type="submit" class="btn btn-secondary">Add Task To List</button></a></center>
+        </div>
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
